@@ -15,29 +15,80 @@
 ## 安装
 
 ```bash
+cd video-subtitle-extractor
 pip install -r requirements.txt
 ```
 
-## 使用方式
+## 如何启动
 
-### 1. 命令行直接传入 URL
+先进入项目目录：
+
+```bash
+cd video-subtitle-extractor
+```
+
+然后选择一种方式启动：
+
+### 1. 直接传入一个或多个视频链接
 
 ```bash
 python main.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 python main.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ" "https://www.bilibili.com/video/BV1xx411c7mD"
 ```
 
-### 2. 从文本文件读取
+### 2. 从文本文件批量启动
+
+`urls.txt` 中每行放一个视频链接，然后运行：
 
 ```bash
 python main.py -f urls.txt
 python main.py -f urls.txt -o ./my_output
 ```
 
-### 3. 交互式粘贴
+### 3. 交互式启动
+
+运行下面命令后，把多个链接逐行粘贴进去，输入空行结束：
 
 ```bash
 python main.py -i
+```
+
+### 4. 查看帮助
+
+```bash
+python main.py -h
+```
+
+## 常用启动示例
+
+### 指定输出目录
+
+```bash
+python main.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -o ./output
+```
+
+### 保留时间戳
+
+```bash
+python main.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -t
+```
+
+### 指定语言优先级
+
+```bash
+python main.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -l zh-CN,en,ja
+```
+
+### 设置并发数量
+
+```bash
+python main.py -f urls.txt -c 5
+```
+
+### 处理需要登录的 Bilibili 视频
+
+```bash
+python main.py "https://www.bilibili.com/video/BVxxxx" --cookie "你的SESSDATA"
 ```
 
 ## 命令行参数
@@ -73,14 +124,6 @@ python main.py -i
 字幕正文内容
 
 ---
-```
-
-## Bilibili Cookie 用法
-
-部分 Bilibili 视频需要登录态或会员权限才能访问字幕接口，此时可以通过 `--cookie` 传入 `SESSDATA`：
-
-```bash
-python main.py "https://www.bilibili.com/video/BVxxxx" --cookie "你的SESSDATA"
 ```
 
 ## 常见错误
