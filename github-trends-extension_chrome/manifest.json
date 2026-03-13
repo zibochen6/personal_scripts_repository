@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub AI & Jetson Trends",
+  "version": "1.0",
+  "description": "Real-time tracking of hot AI projects and latest Jetson open source projects on GitHub.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.github.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
